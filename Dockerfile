@@ -8,6 +8,10 @@ ADD /target/gateway-0.0.1.jar app.jar
 #RUN command to “touch” the jar file so that it has a file #modification time
 RUN bash -c 'touch /app.jar'
 
+COPY api-gateway.sh /opt/bin/api-gateway.sh
+
+RUN chmod 755 /opt/bin/api-gateway.sh
+
 # To reduce Tomcat startup time we added a system property pointing # to “/dev/urandom” as a source of entropy.
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
 
