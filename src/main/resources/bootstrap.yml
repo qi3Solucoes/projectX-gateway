@@ -12,5 +12,10 @@ eureka:
   instance:
     preferIpAddress: true
   client:
+    region: sa-east-1
+    availabilityZones:
+      sa-east-1: sa-east-1a,sa-east-1c
+    registryFetchIntervalSeconds: 15
+    eurekaServerPort: 8761
     serviceUrl:
       defaultZone: http://${EUREKA_HOST:localhost}:${EUREKA_PORT:8761}/eureka/
